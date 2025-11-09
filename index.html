@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Color generator</title>
+  </head>
+  <body>
+    <section>
+      <div>
+        <div id="h1-handler">
+          <h1>Color generator</h1>
+          <button id="light-mode">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e3e3e3"
+            >
+              <path
+                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-84 31.5-156.5T197-763l56 56q-44 44-68.5 102T160-480q0 134 93 227t227 93q134 0 227-93t93-227q0-67-24.5-125T707-707l56-56q54 54 85.5 126.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-360v-440h80v440h-80Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <p>Create your color pallete for your project</p>
+      </div>
+      <div id="input-container">
+        <label for="hue-inp">
+          <input
+            type="range"
+            name="hue"
+            id="hue-inp"
+            min="0"
+            max="359"
+            step="1"
+            class="slider"
+          />
+          <p id="hue-output">300</p>
+        </label>
+        <label for="saturation-inp">
+          <input
+            type="range"
+            name="saturation"
+            id="saturation-inp"
+            min="0"
+            max="30"
+            step="1"
+            class="slider"
+          />
+          <p id="saturation-output">50</p>
+        </label>
+      </div>
+    </section>
+    <section>
+      <div id="create-preset-container">
+        <h2>CREATE PRESET</h2>
+      </div>
+      <ul id="preset-handler">
+        <!-- <li class="preset-container">
+          <h3>Preset 1</h3>
+          <div class="button-container">
+            <button class="show-code">Show code</button>
+            <button class="delete-preset">Delete preset</button>
+          </div>
+        </li> -->
+      </ul>
+    </section>
+    <section>
+      <ul id="pallete-container-list">
+        <li>
+          <h2>Background</h2>
+          <div class="pallete-container">
+            <div>
+              <span id="bg-100"> </span>
+              <p>bg-100</p>
+            </div>
+            <div>
+              <span id="bg-200"> </span>
+              <p>bg-200</p>
+            </div>
+            <div>
+              <span id="bg-300"> </span>
+              <p>bg-300</p>
+            </div>
+            <div>
+              <span id="bg-400"> </span>
+              <p>bg-400</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <h2>Text</h2>
+          <div class="pallete-container">
+            <div>
+              <span id="text-900"> </span>
+              <p>text-900</p>
+            </div>
+            <div>
+              <span id="text-800"> </span>
+              <p>text-800</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <h2>Border</h2>
+          <div class="pallete-container">
+            <div>
+              <span id="border-100"> </span>
+              <p>border-100</p>
+            </div>
+            <div>
+              <span id="border-200"> </span>
+              <p>border-200</p>
+            </div>
+            <div>
+              <span id="border-300"> </span>
+              <p>border-300</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <h2>Action</h2>
+          <div class="pallete-container">
+            <div>
+              <span id="primary"> </span>
+              <p>primary</p>
+            </div>
+            <div>
+              <span id="secondary"> </span>
+              <p>secondary</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <h2>Notifications</h2>
+          <div class="pallete-container">
+            <div>
+              <span id="danger"> </span>
+              <p>danger</p>
+            </div>
+            <div>
+              <span id="warning"> </span>
+              <p>warning</p>
+            </div>
+            <div>
+              <span id="success"> </span>
+              <p>success</p>
+            </div>
+            <div>
+              <span id="info"> </span>
+              <p>info</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section id="show-code-container">
+      <div id="show-code-dialog">
+        <div id="close-button-container">
+          <svg
+            id="closer"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e3e3e3"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+        </div>
+        <div id="text-container">
+          <div class="modes-text">
+            <h2>Dark mode</h2>
+            <p>
+              --bg-100: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 5%);
+            </p>
+            <p>
+              --bg-200: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 10%);
+            </p>
+            <p>
+              --bg-300: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 15%);
+            </p>
+            <p>
+              --bg-400: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 20%);
+            </p>
+            <p>
+              --text-900: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 95%);
+            </p>
+            <p>
+              --text-800: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 85%);
+            </p>
+            <p>
+              --border-100: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 35%);
+            </p>
+            <p>
+              --border-200: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 45%);
+            </p>
+            <p>
+              --border-300: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 55%);
+            </p>
+            <p>--primary: hsl(76, 100%, 50%);</p>
+            <p>--secondary: hsl(240, 50%, 35%);</p>
+            <p>
+              --danger: hsl(0,
+              <span class="saturation">var(--saturation)</span>, 50%);
+            </p>
+            <p>
+              --warning: hsl(25,
+              <span class="saturation">var(--saturation)</span>, 50%);
+            </p>
+            <p>
+              --success: hsl(120,
+              <span class="saturation">var(--saturation)</span>, 50%);
+            </p>
+            <p>
+              --info: hsl(80, <span class="saturation">var(--saturation)</span>,
+              50%);
+            </p>
+          </div>
+          <div class="modes-text">
+            <h2>light mode</h2>
+            <p>
+              --bg-100: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 95%);
+            </p>
+            <p>
+              --bg-200: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 90%);
+            </p>
+            <p>
+              --bg-200: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 85%);
+            </p>
+            <p>
+              --bg-400: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 80%);
+            </p>
+            <p>
+              --text-900: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 5%);
+            </p>
+            <p>
+              --text-800: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 15%);
+            </p>
+            <p>
+              --border-100: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 65%);
+            </p>
+            <p>
+              --border-200: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 55%);
+            </p>
+            <p>
+              --border-300: hsl(<span class="hue">var(--hue)</span>,
+              <span class="saturation">var(--saturation)</span>, 45%);
+            </p>
+            <p>--primary: hsl(76, 100%, 50%);</p>
+            <p>--secondary: hsl(240, 50%, 35%);</p>
+            <p>
+              --danger: hsl(0,
+              <span class="saturation">var(--saturation)</span>, 50%);
+            </p>
+            <p>
+              --warning: hsl(25,
+              <span class="saturation">var(--saturation)</span>, 50%);
+            </p>
+            <p>
+              --success: hsl(120,
+              <span class="saturation">var(--saturation)</span>, 50%);
+            </p>
+            <p>
+              --info: hsl(80, <span class="saturation">var(--saturation)</span>,
+              50%);
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

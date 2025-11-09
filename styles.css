@@ -1,0 +1,356 @@
+:root {
+  --hue: 320;
+  --saturation: 100%;
+  --bg-100: hsl(var(--hue), var(--saturation), 5%);
+  --bg-200: hsl(var(--hue), var(--saturation), 10%);
+  --bg-300: hsl(var(--hue), var(--saturation), 15%);
+  --bg-400: hsl(var(--hue), var(--saturation), 20%);
+  --text-900: hsl(var(--hue), var(--saturation), 95%);
+  --text-800: hsl(var(--hue), var(--saturation), 85%);
+  --border-100: hsl(var(--hue), var(--saturation), 35%);
+  --border-200: hsl(var(--hue), var(--saturation), 45%);
+  --border-300: hsl(var(--hue), var(--saturation), 55%);
+  --primary: hsl(76, 100%, 50%);
+  --secondary: hsl(240, 50%, 35%);
+  --danger: hsl(0, var(--saturation), 50%);
+  --warning: hsl(25, var(--saturation), 50%);
+  --success: hsl(120, var(--saturation), 50%);
+  --info: hsl(80, var(--saturation), 50%);
+  --ff: "Roboto", sans-serif;
+  --h1: 800 1.5rem var(--ff);
+  --h2: 600 1.25rem var(--ff);
+  --p: 400 1rem var(--ff);
+}
+
+:root.light {
+  --bg-100: hsl(var(--hue), var(--saturation), 95%);
+  --bg-200: hsl(var(--hue), var(--saturation), 90%);
+  --bg-300: hsl(var(--hue), var(--saturation), 85%);
+  --bg-400: hsl(var(--hue), var(--saturation), 80%);
+  --text-900: hsl(var(--hue), var(--saturation), 5%);
+  --text-800: hsl(var(--hue), var(--saturation), 15%);
+  --border-100: hsl(var(--hue), var(--saturation), 65%);
+  --border-200: hsl(var(--hue), var(--saturation), 55%);
+  --border-300: hsl(var(--hue), var(--saturation), 45%);
+  --primary: hsl(76, 100%, 50%);
+  --secondary: hsl(240, 50%, 35%);
+  --danger: hsl(0, var(--saturation), 50%);
+  --warning: hsl(25, var(--saturation), 50%);
+  --success: hsl(120, var(--saturation), 50%);
+  --info: hsl(80, var(--saturation), 50%);
+}
+
+body {
+  background-color: var(--bg-100);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+section {
+  background-color: var(--bg-200);
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  border: solid 1px var(--border-100);
+  border-top: solid 1px var(--border-200);
+}
+
+div {
+  background-color: var(--bg-300);
+  border-radius: 10px;
+  padding: 1rem;
+  border: solid 1px var(--border-200);
+  border-top: solid 1px var(--border-300);
+}
+
+h1 {
+  font: var(--h1);
+  color: var(--text-900);
+}
+
+h2 {
+  font: var(--h2);
+  color: var(--text-900);
+}
+
+h3 {
+  font: var(--h2);
+  color: var(--text-800);
+}
+
+p {
+  font: var(--p);
+  color: var(--text-800);
+}
+
+#input-container label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20rem;
+  height: 1rem;
+  display: inline;
+  border-radius: 8px;
+}
+
+#hue-inp {
+  background: linear-gradient(
+    90deg,
+    hsl(0, var(--saturation), 50%),
+    hsl(90, var(--saturation), 50%),
+    hsl(180, var(--saturation), 50%),
+    hsl(240, var(--saturation), 50%),
+    hsl(320, var(--saturation), 50%),
+    hsl(360, var(--saturation), 50%)
+  );
+}
+
+#saturation-inp {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--hue), 0%, 50%),
+    hsl(var(--hue), 100%, 50%)
+  );
+}
+
+#hue-output,
+#saturation-output {
+  background-color: var(--bg-100);
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+}
+
+#create-preset-container {
+  text-align: center;
+  padding: 0.5rem auto;
+  margin-bottom: 2rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  background: var(--bg-300);
+  list-style: none;
+  margin: 0;
+  border-radius: 15px;
+  border: solid 1px var(--border-200);
+  border-top: solid 1px var(--border-300);
+}
+
+.preset-container {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container {
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  border: none;
+}
+
+button {
+  background-color: var(--bg-400);
+  border: none;
+  border-radius: 10px;
+  font: var(--p);
+  color: var(--text-800);
+  height: 4rem;
+  width: 7rem;
+  cursor: pointer;
+}
+#pallete-container-list {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+#pallete-container-list li {
+  padding: 1rem;
+}
+
+.pallete-container {
+  display: flex;
+  gap: 1rem;
+  border: none;
+  width: 80%;
+}
+
+.pallete-container div {
+  padding: 0;
+  border: none;
+  flex: 1;
+}
+
+.pallete-container p {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+span {
+  display: inline-block;
+  width: 100%;
+  height: 3rem;
+  background-color: black;
+  padding: 0;
+  border-radius: 10px;
+  border: solid 1px var(--border-300);
+}
+
+#bg-100 {
+  background-color: var(--bg-100);
+}
+#bg-200 {
+  background-color: var(--bg-200);
+}
+#bg-300 {
+  background-color: var(--bg-300);
+}
+#bg-400 {
+  background-color: var(--bg-400);
+}
+
+#text-900 {
+  background-color: var(--text-900);
+}
+
+#text-800 {
+  background-color: var(--text-800);
+}
+
+#border-100 {
+  background-color: var(--border-100);
+}
+#border-200 {
+  background-color: var(--border-200);
+}
+#border-300 {
+  background-color: var(--border-300);
+}
+
+#danger {
+  background-color: var(--danger);
+}
+
+#warning {
+  background-color: var(--warning);
+}
+
+#success {
+  background-color: var(--success);
+}
+
+#info {
+  background-color: var(--info);
+}
+
+.show-code,
+.delete-preset,
+#create-preset-container {
+  cursor: pointer;
+}
+
+div.show-code {
+  background-color: var(--bg-100);
+  border: solid 1px var(--border-100);
+  border-top: solid 1px var(--border-200);
+  border-radius: 15px;
+  margin: 1rem auto;
+  width: 10rem;
+}
+
+#show-code-dialog {
+  width: fit-content;
+  margin: 1rem auto;
+}
+
+#show-code-container {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  top: 0;
+  left: 0;
+  padding: 0;
+}
+
+.hue,
+.saturation {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+}
+
+#close-button-container {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: right;
+}
+
+svg {
+  cursor: pointer;
+  fill: var(--text-900);
+}
+
+#preset-handler {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+
+#h1-handler {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  border-radius: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+#light-mode {
+  width: fit-content;
+  height: fit-content;
+  padding-top: 0.25rem;
+}
+
+#text-container {
+  display: flex;
+  gap: 1rem;
+  border: none;
+  border-radius: 0;
+}
+
+.modes-text {
+  background-color: var(--bg-400);
+}
