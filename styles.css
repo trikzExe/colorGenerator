@@ -349,6 +349,8 @@ svg {
   gap: 1rem;
   border: none;
   border-radius: 0;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .modes-text {
