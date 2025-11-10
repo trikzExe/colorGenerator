@@ -1,6 +1,8 @@
 :root {
   --hue: 320;
   --saturation: 100%;
+  --primary-saturation: 30%;
+  --secondary-hue: 120;
   --bg-100: hsl(var(--hue), var(--saturation), 5%);
   --bg-200: hsl(var(--hue), var(--saturation), 10%);
   --bg-300: hsl(var(--hue), var(--saturation), 15%);
@@ -10,8 +12,8 @@
   --border-100: hsl(var(--hue), var(--saturation), 35%);
   --border-200: hsl(var(--hue), var(--saturation), 45%);
   --border-300: hsl(var(--hue), var(--saturation), 55%);
-  --primary: hsl(76, 100%, 50%);
-  --secondary: hsl(240, 50%, 35%);
+  --primary: hsl(var(--hue), var(--primary-saturation), 50%);
+  --secondary: hsl(var(--secondary-hue), var(--primary-saturation), 35%);
   --danger: hsl(0, var(--saturation), 50%);
   --warning: hsl(25, var(--saturation), 50%);
   --success: hsl(120, var(--saturation), 50%);
@@ -301,7 +303,9 @@ div.show-code {
 }
 
 .hue,
-.saturation {
+.saturation,
+.primary-saturation,
+.secondary-hue {
   background-color: transparent;
   width: auto;
   height: auto;
@@ -356,4 +360,12 @@ svg {
 .modes-text {
   background-color: var(--bg-400);
   margin: auto;
+}
+
+#primary {
+  background-color: var(--primary);
+}
+
+#secondary {
+  background-color: var(--secondary);
 }

@@ -13,6 +13,8 @@ const closer = document.querySelector("#closer");
 const presetHandler = document.getElementById("preset-handler");
 const deletePreset = document.querySelectorAll(".delete-preset");
 const lightModeButton = document.getElementById("light-mode");
+const primarySaturationText = document.querySelectorAll(".primary-saturation");
+const secondaryHueText = document.querySelectorAll(".secondary-hue");
 
 let presetNumber = 0;
 
@@ -24,6 +26,15 @@ function colorChanger() {
   hueOutput.textContent = hueInput.value;
   root.style.setProperty("--saturation", saturationInput.value + "%");
   saturationOutput.textContent = saturationInput.value;
+  const primarySaturationValue = saturationInput.valueAsNumber + 30;
+  root.style.setProperty("--primary-saturation", primarySaturationValue + "%");
+  if (hueInput.valueAsNumber > 180) {
+    const secondaryHueValue = hueInput.valueAsNumber - 180;
+    root.style.setProperty("--secondary-hue", secondaryHueValue);
+  } else {
+    const secondaryHueValue = hueInput.valueAsNumber + 180;
+    root.style.setProperty("--secondary-hue", secondaryHueValue);
+  }
 }
 
 function codeShower(event) {
@@ -35,7 +46,25 @@ function codeShower(event) {
     i.textContent = hueHandler[n.indexOf(targetElement)];
   }
   for (let i of saturationText) {
-    i.textContent = saturationHandler[n.indexOf(targetElement)];
+    i.textContent = saturationHandler[n.indexOf(targetElement)] + "%";
+  }
+  for (let i of primarySaturationText) {
+    const primarySaturationNumber =
+      parseInt(saturationHandler[n.indexOf(targetElement)]) + 30 + "%";
+    i.textContent = primarySaturationNumber;
+  }
+  if (parseInt(hueHandler[n.indexOf(targetElement)]) > 180) {
+    for (let i of secondaryHueText) {
+      const secondaryHueNumber =
+        parseInt(hueHandler[n.indexOf(targetElement)]) - 180;
+      i.textContent = secondaryHueNumber;
+    }
+  } else {
+    for (let i of secondaryHueText) {
+      const secondaryHueNumber =
+        parseInt(hueHandler[n.indexOf(targetElement)]) + 180;
+      i.textContent = secondaryHueNumber;
+    }
   }
 }
 
@@ -84,7 +113,7 @@ function presetDeleter(event) {
 
 function lightModeChanger() {
   if (root.classList.contains("light")) {
-    root.classList.remove("light")
+    root.classList.remove("light");
   } else {
     root.classList.add("light");
   }
