@@ -13,7 +13,7 @@
   --border-200: hsl(var(--hue), var(--saturation), 45%);
   --border-300: hsl(var(--hue), var(--saturation), 55%);
   --primary: hsl(var(--hue), var(--primary-saturation), 50%);
-  --secondary: hsl(var(--secondary-hue), var(--primary-saturation), 35%);
+  --secondary: hsl(var(--secondary-hue), var(--primary-saturation), 50%);
   --danger: hsl(0, var(--saturation), 50%);
   --warning: hsl(25, var(--saturation), 50%);
   --success: hsl(120, var(--saturation), 50%);
@@ -34,8 +34,8 @@
   --border-100: hsl(var(--hue), var(--saturation), 65%);
   --border-200: hsl(var(--hue), var(--saturation), 55%);
   --border-300: hsl(var(--hue), var(--saturation), 45%);
-  --primary: hsl(76, 100%, 50%);
-  --secondary: hsl(240, 50%, 35%);
+  --primary: hsl(var(--hue), var(--primary-saturation), 50%);
+  --secondary: hsl(var(--secondary-hue), var(--primary-saturation), 50%);
   --danger: hsl(0, var(--saturation), 50%);
   --warning: hsl(25, var(--saturation), 50%);
   --success: hsl(120, var(--saturation), 50%);
